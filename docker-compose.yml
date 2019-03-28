@@ -1,0 +1,55 @@
+version: "3.7"
+
+services:
+  get-rico-dev:
+    build:
+      context: .
+    command:
+      - "node"
+      - "--require"
+      - "dotenv/config"
+      - "src/get.js"
+      - "--bucket"
+      - "ricochet-web-settings"
+      - "--branch"
+      - "dev"
+      - "--project"
+      - "ricoconsign-laravel"
+    environment:
+      - DOTENV_CONFIG_DEBUG=true
+    volumes:
+      - type: bind
+        source: ./.env
+        target: /usr/src/app/.env
+      - type: bind
+        source: ./src
+        target: /usr/src/app/src
+      - type: bind
+        source: ./s3
+        target: /usr/src/app/s3
+  put-rico-dev:
+    build:
+      context: .
+    command:
+      - "node"
+      - "--require"
+      - "dotenv/config"
+      - "src/put.js"
+      - "--bucket"
+      - "ricochet-web-settings"
+      - "--branch"
+      - "dev"
+      - "--project"
+      - "ricoconsign-laravel"
+    environment:
+      - DOTENV_CONFIG_DEBUG=true
+    volumes:
+      - type: bind
+        source: ./.env
+        target: /usr/src/app/.env
+      - type: bind
+        source: ./src
+        target: /usr/src/app/src
+      - type: bind
+        source: ./s3
+        target: /usr/src/app/s3

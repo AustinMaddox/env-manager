@@ -1,0 +1,20 @@
+{
+  "name": "@austinmaddox/env-manager",
+  "version": "0.0.1",
+  "description": "Manage .env files",
+  "main": "main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "AustinMaddox",
+  "license": "ISC",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/AustinMaddox/env-manager.git"
+  },
+  "devDependencies": {
+    "aws-sdk": ">= 2.0.9",
+    "commander": "^2.19.0",
+    "dotenv": "^7.0.0"
+  }
+}
